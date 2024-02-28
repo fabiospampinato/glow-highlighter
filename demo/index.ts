@@ -12,27 +12,27 @@ const BACKGROUND_DARK = '#1f1f1f';
 const BACKGROUND_LIGHT = '#ffffff';
 
 const THEME_DARK = {
-  base: '#a2aab1',
-  primary: '#7dd3fc',
-  secondary: '#f472b6',
-  accent: '#419fff',
-  char: '#64748b',
-  comment: '#6f7a7d',
+  base: '#E1E4E8',
+  primary: '#B392F0',
+  secondary: '#9ECBFF',
+  accent: '#F97583',
+  char: '#E1E4E8',
+  comment: '#6A737D',
   error: '#ff0000',
-  special: '#fffff',
-  marked: '#2dd4bf26'
+  special: '#FFAB70',
+  marked: '#F9758329'
 };
 
 const THEME_LIGHT = {
-  base: '#555555',
-  primary: '#0068d6',
-  secondary: '#bd2864',
-  accent: '#456aff',
-  char: '#8e989c',
-  comment: '#9aa1a3',
+  base: '#24292E',
+  primary: '#6F42C1',
+  secondary: '#032F62',
+  accent: '#D73A49',
+  char: '#24292E',
+  comment: '#6A737D',
   error: '#ff0000',
-  special: '#7820bc',
-  marked: '#51c6fe29'
+  special: '#E36209',
+  marked: '#D73A4929'
 };
 
 const highlighter = new Highlighter ();
@@ -41,6 +41,8 @@ const highlighter = new Highlighter ();
 
 let code = `
 import shiki from 'shiki';
+
+// Some example code
 
 shiki
   .getHighlighter({
