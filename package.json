@@ -1,0 +1,32 @@
+{
+  "name": "glow-highlighter",
+  "repository": "github:fabiospampinato/glow-highlighter",
+  "description": "An isomorphic syntax highlighter for Glow.",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "clean": "tsex clean",
+    "compile": "tsex compile",
+    "compile:watch": "tsex compile --watch",
+    "demo": "vite demo",
+    "prepublishOnly": "tsex prepare"
+  },
+  "keywords": [
+    "glow",
+    "syntax",
+    "highlighting"
+  ],
+  "dependencies": {
+    "event-loop-yielder": "^3.0.1",
+    "nue-glow": "^0.1.3",
+    "tokens-highlighter": "^1.0.0"
+  },
+  "devDependencies": {
+    "tsex": "^3.0.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4"
+  }
+}
