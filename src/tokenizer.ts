@@ -38,13 +38,15 @@ class Tokenizer {
 
   /* API */
 
-  tokenize = async ( lines: string[], language: string, theme: GlowTheme, signal: AbortSignal | undefined, onTokens: ( tokens: GlowToken[], lineIndex: number ) => void ): Promise<void> => { //TODO: Optimize this //TODO: Maybe add a sync version too
+  tokenize = async ( lines: string[], language: string, theme: GlowTheme, signal?: AbortSignal, onTokens?: ( tokens: GlowToken[], lineIndex: number ) => void ): Promise<GlowToken[][]> => { //TODO: Optimize this //TODO: Maybe add a sync version too
+
+    const linesTokens: GlowToken[][] = new Array ( lines.length ).fill ( [] );
 
     for ( let i = 0, l = lines.length; i < l; i++ ) {
 
       if ( i % 10 === 0 ) await yieldToEventLoop ();
 
-      if ( signal?.aborted ) return;
+      if ( signal?.aborted ) return linesTokens;
 
       const line = lines[i];
       const lineTokensRaw = parseRow ( line, language );
@@ -113,9 +115,13 @@ class Tokenizer {
 
       }
 
-      onTokens ( lineTokens, i );
+      onTokens?.( lineTokens, i );
+
+      linesTokens[i] = lineTokens;
 
     }
+
+    return linesTokens;
 
   };
 

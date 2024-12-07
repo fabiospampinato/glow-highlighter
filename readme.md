@@ -92,7 +92,7 @@ const lines = [
 const abortController = new AbortController ();
 const abortSignal = abortController.signal;
 
-highlighter.tokenize ( lines, 'js', THEME_DARK, abortSignal, ( lineTokens, lineIndex ) => {
+const linesTokens = await highlighter.tokenize ( lines, 'js', THEME_DARK, abortSignal, ( lineTokens, lineIndex ) => {
   console.log ( 'Line tokens:', lineTokens );
   console.log ( 'Line index:', lineIndex );
 });

@@ -55,7 +55,7 @@ class GlowHighlighter {
 
   };
 
-  tokenize = ( lines: string[], language: string, theme: GlowTheme, signal: AbortSignal | undefined, onTokens: ( tokens: GlowToken[], lineIndex: number ) => void ): Promise<void> => {
+  tokenize = ( lines: string[], language: string, theme: GlowTheme, signal?: AbortSignal, onTokens?: ( tokens: GlowToken[], lineIndex: number ) => void ): Promise<GlowToken[][]> => {
 
     return this.tokenizer.tokenize ( lines, language, theme, signal, onTokens );
 
